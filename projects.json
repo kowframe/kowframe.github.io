@@ -1,23 +1,23 @@
 [
   {
-    "id": "eai-backend",
-    "title": "Enterprise Application Integration (EAI)",
-    "organization": "During work at Expressway Authority of Thailand (EXAT)",
-    "description": "Handled the full development cycle for backend services and web applications. This involved gathering user requirements, system analysis, design, and development using Java (EE) and SQL to manage critical business data flows [1].",
-    "tags": ["Java (EE)", "SQL", "Oracle Service Bus", "System Design"]
-  },
-  {
-    "id": "python-automation",
-    "title": "Process Automation with Python",
-    "organization": "During work at LEARN Corporation Public Co., Ltd.",
-    "description": "Developed Python scripts to automate the entry of customer tracking numbers into Microsoft Dynamics NAV. This significantly reduced manual work and data entry errors, improving operational efficiency [1].",
-    "tags": ["Python", "Automation", "Microsoft Dynamics NAV"]
+    "id": "eai-testing",
+    "title": "EAI Automation Testing",
+    "organization": "During work at AIS",
+    "description": "Analyzed requirements to develop Automation Testing software (scripts), helping the team perform tests more quickly and accurately, in addition to designing manual Test Scenarios and Test Cases.",
+    "tags": ["Automation Testing", "Manual Testing", "Test Scenarios", "QA"]
   },
   {
     "id": "flash-integration",
     "title": "Flash Express Integration Project",
     "organization": "During work at LEARN Corporation Public Co., Ltd.",
-    "description": "Developed and implemented a Web Service to support Webhook integration with Flash Express using Google Apps Script, enabling automated data synchronization for payment reconciliation [1].",
-    "tags": ["Google Apps Script", "Webhook", "API Integration"]
+    "description": "Developed and implemented a Web Service to support Webhook integration with Flash Express using Google Apps Script, enabling automated data synchronization for payment reconciliation.",
+    "tags": ["Google Apps Script", "Webhook", "API Integration", "Web Service"]
+  },
+  {
+    "id": "functional-support-nav",
+    "title": "Functional Support (Dynamics NAV)",
+    "organization": "During work at Expressway Authority of Thailand (EXAT)",
+    "description": "Acted as a Functional Support Analyst for Microsoft Dynamics NAV, diagnosing and resolving critical issues for multiple branches, including payment failures and inventory reconciliation errors.",
+    "tags": ["Microsoft Dynamics NAV", "ERP", "Functional Support", "Troubleshooting"]
   }
 ]
