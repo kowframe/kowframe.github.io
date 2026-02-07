@@ -8,37 +8,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, {
-        threshold: 0.1 // Trigger when 10% of the element is visible
+        threshold: 0.1
     });
 
     const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
     elementsToAnimate.forEach(el => observer.observe(el));
 
 
-    // --- Scrollytelling Logic ---
+    // --- Scrollytelling Logic (FIXED) ---
     const scrollyObserver = new IntersectionObserver((entries) => {
-        // Find which step is most visible
-        let mostVisibleEntry = null;
-        let maxRatio = 0;
-
         entries.forEach(entry => {
-            if (entry.intersectionRatio > maxRatio) {
-                maxRatio = entry.intersectionRatio;
-                mostVisibleEntry = entry;
+            // เมื่อ step เข้ามาในพื้นที่ที่กำหนด ให้ active
+            if (entry.isIntersecting) {
+                // ลบ active class ออกจากทุก step ก่อน
+                document.querySelectorAll('.step').forEach(step => {
+                    step.classList.remove('is-active');
+                });
+                // แล้วค่อยเพิ่ม active class ให้กับ step ปัจจุบัน
+                entry.target.classList.add('is-active');
             }
         });
-
-        // Deactivate all steps
-        const allSteps = document.querySelectorAll('.step');
-        allSteps.forEach(step => step.classList.remove('is-active'));
-
-        // Activate the most visible one
-        if (mostVisibleEntry) {
-            mostVisibleEntry.target.classList.add('is-active');
-        }
-
     }, {
-        threshold: [0.2, 0.4, 0.6, 0.8] // Create multiple trigger points for accuracy
+        // ให้ observer ทำงานเมื่อ step ผ่านกึ่งกลางจอ (-50%)
+        rootMargin: '-50% 0px -50% 0px'
     });
     
     const steps = document.querySelectorAll('.step');

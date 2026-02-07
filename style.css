@@ -105,7 +105,8 @@ section, footer {
 }
 
 .step {
-    min-height: 80vh; /* Creates scroll distance */
+    /* ลองเพิ่ม min-height ให้มากขึ้น เพื่อให้มีพื้นที่ Scroll ชัดเจน */
+    min-height: 100vh; /* ให้แต่ละ step สูงเท่ากับ 1 หน้าจอเต็ม */
     display: flex;
     flex-direction: column;
     justify-content: center;
