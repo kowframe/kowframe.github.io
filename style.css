@@ -182,6 +182,15 @@ section, footer {
 .project-details h3 {
     font-size: 2rem;
     color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.project-organization {
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .tech-tags {
@@ -249,26 +258,21 @@ section, footer {
     body {
         font-size: 16px;
     }
-
     .scrolly-section {
         flex-direction: column;
     }
-
     .sticky-visual {
         position: relative;
         width: 100%;
         height: 50vh;
     }
-
     .scroll-text {
         width: 100%;
     }
-
     .step {
         min-height: 50vh;
         padding: 60px 10%;
     }
-
     .project-showcase,
     .project-showcase:nth-child(even) {
         flex-direction: column;
@@ -276,5 +280,8 @@ section, footer {
     }
     .tech-tags {
         justify-content: center;
+    }
+    .project-details {
+        text-align: left;
     }
 }
