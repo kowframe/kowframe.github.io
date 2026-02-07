@@ -1,0 +1,203 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --bg-color: #0d0d0d;
+    --text-color: #e0e0e0;
+    --primary-color: #ffffff;
+    --secondary-color: #888888;
+    --font-main: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Utility & Animation Classes --- */
+.content {
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Section Styling --- */
+section, footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 100px 0;
+}
+
+.hero-section h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem); /* Responsive font size */
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.hero-section p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--secondary-color);
+    max-width: 600px;
+    margin: 20px auto 0;
+}
+
+/* --- Scrollytelling Section --- */
+.scrolly-section {
+    display: flex;
+    padding: 0; /* No padding for full-bleed effect */
+}
+
+.sticky-visual {
+    position: sticky;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+}
+
+.visual-content {
+    text-align: center;
+    padding: 20px;
+    /* You can replace this with an <img> or background-image */
+}
+
+.visual-content h2 {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.scroll-text {
+    width: 50%;
+}
+
+.step {
+    min-height: 80vh; /* Creates scroll distance */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
+}
+
+.step.is-active {
+    opacity: 1;
+}
+
+.step h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: transform 0.2s ease;
+}
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* --- Skills & Contact Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    width: 100%;
+    text-align: left;
+}
+
+.skill-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.skill-card h4 {
+    color: var(--primary-color);
+    margin: 0 0 10px;
+}
+
+.contact-section h2, .skills-section h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--primary-color);
+}
+
+.contact-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+}
+
+.contact-links a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .scrolly-section {
+        flex-direction: column;
+    }
+
+    .sticky-visual {
+        position: relative; /* Un-stick it on mobile */
+        width: 100%;
+        height: 50vh; /* Make it shorter */
+    }
+
+    .scroll-text {
+        width: 100%;
+    }
+
+    .step {
+        min-height: auto; /* Let content define height */
+        padding: 60px 10%;
+    }
+}
