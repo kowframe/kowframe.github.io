@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- General Animate on Scroll ---
+    // --- General Animate on Scroll (This part remains the same) ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -15,24 +15,41 @@ document.addEventListener('DOMContentLoaded', () => {
     elementsToAnimate.forEach(el => observer.observe(el));
 
 
-    // --- Scrollytelling Logic (FIXED) ---
-    const scrollyObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            // เมื่อ step เข้ามาในพื้นที่ที่กำหนด ให้ active
-            if (entry.isIntersecting) {
-                // ลบ active class ออกจากทุก step ก่อน
-                document.querySelectorAll('.step').forEach(step => {
-                    step.classList.remove('is-active');
-                });
-                // แล้วค่อยเพิ่ม active class ให้กับ step ปัจจุบัน
-                entry.target.classList.add('is-active');
+    // --- Scrollytelling Logic (NEW & IMPROVED: Find Closest to Center) ---
+    const steps = document.querySelectorAll('.step');
+
+    function updateActiveStep() {
+        const viewportCenter = window.innerHeight / 2;
+        let closestStep = null;
+        let minDistance = Infinity;
+
+        // 1. Find the step closest to the viewport center
+        steps.forEach(step => {
+            const rect = step.getBoundingClientRect();
+            // Calculate the center of the element relative to the viewport
+            const elementCenter = rect.top + rect.height / 2;
+            // Calculate the absolute distance from the viewport center
+            const distance = Math.abs(viewportCenter - elementCenter);
+
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestStep = step;
             }
         });
-    }, {
-        // ให้ observer ทำงานเมื่อ step ผ่านกึ่งกลางจอ (-50%)
-        rootMargin: '-50% 0px -50% 0px'
-    });
+
+        // 2. Activate the closest step and deactivate others
+        steps.forEach(step => {
+            if (step === closestStep) {
+                step.classList.add('is-active');
+            } else {
+                step.classList.remove('is-active');
+            }
+        });
+    }
+
+    // Run the function on scroll
+    window.addEventListener('scroll', updateActiveStep);
     
-    const steps = document.querySelectorAll('.step');
-    steps.forEach(step => scrollyObserver.observe(step));
+    // Also run it once on load
+    updateActiveStep();
 });
