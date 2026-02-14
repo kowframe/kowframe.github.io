@@ -6,9 +6,11 @@
 }
 
 body {
+    
     background-color: var(--dark-bg);
     color: var(--light-text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text", Roboto, Helvetica, Arial, sans-serif; */
     margin: 0;
 }
 
@@ -62,6 +64,10 @@ body {
     box-sizing: border-box;
 }
 
+.story-container .step:first-child {
+    padding-top: 0;
+}
+
 .visual-wrapper {
     width: 90%;
     max-width: 1000px;
@@ -96,7 +102,7 @@ body {
     font-size: 1.2rem;
     color: var(--dim-text);
     line-height: 1.6;
-    max-width: 600px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -134,15 +140,15 @@ body {
     margin-bottom: 2rem; 
 }
 
-/* === MOBILE RESPONSIVE STYLES === */
+/* === MOBILE RESPONSIVE STYLES (Breakpoint at 768px) === */
 @media (max-width: 768px) {
     .step {
-        padding: 4rem 15px;
+        min-height: auto; 
+        padding: 4rem 15px; 
     }
+
     .text-content h2 { font-size: 2rem; }
     .text-content p { font-size: 1rem; }
-
-    /* Restore responsive styles for top and bottom sections */
     .contact-section h2 { font-size: 2.5rem; }
     .contact-section a { font-size: 1.2rem; }
 }
