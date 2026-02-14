@@ -1,300 +1,177 @@
-/* --- Global Styles & Variables --- */
+/* --- Global Apple-like Style --- */
 :root {
-    --bg-color: #0d0d0d;
-    --text-color: #e0e0e0;
-    --primary-color: #ffffff;
-    --secondary-color: #888888;
-    --font-main: 'Inter', sans-serif;
+    --dark-bg: #000000;
+    --light-text: #f5f5f7;
+    --dim-text: #a1a1a6;
+    --accent-blue: #0071e3;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-main);
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
-    font-size: 18px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Utility & Animation Classes --- */
-.content {
-    max-width: 1100px;
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.animate-on-load {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1s ease-out 0.5s forwards;
-}
-
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* --- Section Styling --- */
-section, footer {
+/* --- SCENE 1: The Hero --- */
+.hero-section {
+    height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    min-height: 100vh;
-    padding: 100px 0;
-    box-sizing: border-box;
-    position: relative; /* Add for z-index stacking context */
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
 .hero-section h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--primary-color);
+    font-size: clamp(3rem, 7vw, 5rem);
     margin: 0;
 }
 
 .hero-section p {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: var(--secondary-color);
-    max-width: 650px;
-    margin: 20px auto 0;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    color: var(--dim-text);
+    max-width: 800px;
 }
 
-/* --- Scrollytelling Section --- */
-.scrolly-section {
+/* --- SCENE 2: The Scrollytelling Core --- */
+.scrolly-container {
+    position: relative;
     display: flex;
-    padding: 0;
+    justify-content: space-between;
+    /* 3 steps + 1 spacer = 400vh */
+    height: 400vh;
 }
 
 .sticky-visual {
+    flex-basis: 45%;
+    height: 100vh;
     position: sticky;
     top: 0;
-    width: 50%;
-    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: #1a1a1a;
+    align-items: center;
+    overflow: hidden;
 }
 
-.visual-content {
-    text-align: center;
-    padding: 20px;
+.visual-wrapper {
+    width: 90%;
+    max-width: 800px;
+    aspect-ratio: 4 / 3;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transform: scale(0.9) translateX(-20px);
+    opacity: 0.8;
+    transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.visual-content h2 {
-    font-size: 3rem;
-    color: var(--primary-color);
+.visual-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out;
 }
 
 .scroll-text {
-    width: 50%;
+    flex-basis: 55%;
+    position: relative;
+    z-index: 10;
 }
 
 .step {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0 10%;
-    opacity: 0.3;
+    text-align: left;
+    opacity: 0.2;
     transition: opacity 0.4s ease;
+}
+
+.scrolly-spacer {
+    height: 100vh;
 }
 
 .step.is-active {
     opacity: 1;
 }
 
-.step h3 {
-    color: var(--primary-color);
-    font-size: 1.5rem;
+.step h2 {
+    font-size: 3rem;
+}
+.step p {
+    font-size: 1.25rem;
+    color: var(--dim-text);
+    line-height: 1.6;
+    max-width: 500px;
 }
 
-/* --- Full-Bleed Feature Section --- */
-.full-bleed-section {
-    background-color: #000;
-    text-align: center;
-    padding: 0;
+body.is-scrolling .visual-wrapper {
+    transform: scale(1) translateX(0);
+    opacity: 1;
 }
 
-.full-bleed-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #111;
-    opacity: 0.5;
-    z-index: 1;
-}
-
-.full-bleed-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-}
-
-.full-bleed-content h2 {
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    color: var(--primary-color);
-    margin: 0;
-}
-
-/* --- Additional Project Showcase Section --- */
-.showcase-section {
-    display: block;
-    min-height: auto;
-    padding: 150px 0;
-    background-color: #000;
-}
-
-.project-showcase {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto 120px;
-    width: 90%;
-}
-
-.project-showcase:last-child {
-    margin-bottom: 0;
-}
-
-.project-showcase:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.project-image {
-    flex: 1;
-    min-width: 300px;
-}
-
-.placeholder-img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    background-color: #1a1a1a;
-    border-radius: 10px;
-}
-
-.project-details {
-    flex: 1.2;
-}
-
-.project-details h3 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 5px;
-}
-
-.project-organization {
-    color: var(--secondary-color);
-    font-size: 0.95rem;
-    font-style: italic;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.tech-tags {
-    margin: 20px 0;
-}
-
-.tech-tags span {
-    display: inline-block;
-    background-color: #222;
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-/* --- Skills & Contact Section --- */
-.skills-section {
-    min-height: auto;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-    width: 100%;
-    text-align: left;
-}
-
-.skill-card {
-    background-color: #1a1a1a;
-    padding: 30px;
-    border-radius: 10px;
-}
-
-.skill-card h4 {
-    color: var(--primary-color);
-    margin: 0 0 10px;
-}
-
+/* --- SCENE 3: The Contact Footer --- */
 .contact-section {
-    min-height: 60vh;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-
-.contact-section h2, .skills-section h2 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--primary-color);
-}
-
-.contact-links a {
-    color: var(--secondary-color);
+.contact-section h2 { font-size: 3.5rem; }
+.contact-section a {
+    color: var(--accent-blue);
     text-decoration: none;
+    font-size: 1.5rem;
     margin: 0 15px;
-    font-size: 1.1rem;
-    transition: color 0.2s ease;
 }
 
-.contact-links a:hover {
-    color: var(--primary-color);
-}
+/* === MOBILE RESPONSIVE STYLES (Breakpoint at 768px) === */
 
-/* --- Mobile Responsiveness --- */
-@media (max-width: 820px) {
-    body {
-        font-size: 16px;
-    }
-    .scrolly-section {
+@media (max-width: 768px) {
+    .scrolly-container {
         flex-direction: column;
+        height: auto;
     }
+
     .sticky-visual {
-        position: relative;
+        position: static;
+        flex-basis: auto;
         width: 100%;
-        height: 50vh;
+        height: auto;
+        padding: 40px 0;
     }
+    
+    .visual-wrapper {
+        width: 90%;
+        transform: scale(1) translateX(0);
+        opacity: 1;
+    }
+
     .scroll-text {
+        flex-basis: auto;
         width: 100%;
     }
+
     .step {
-        min-height: 50vh;
-        padding: 60px 10%;
-    }
-    .project-showcase,
-    .project-showcase:nth-child(even) {
-        flex-direction: column;
+        height: auto;
+        min-height: 60vh;
         text-align: center;
+        padding: 0 5%;
     }
-    .project-details {
-        text-align: left;
+
+    .scrolly-spacer {
+        height: 50vh; /* Make spacer shorter on mobile */
     }
+
+    .step h2 { font-size: 2.5rem; }
+    .step p { font-size: 1.1rem; max-width: 100%; }
+    
+    .contact-section h2 { font-size: 2.5rem; }
+    .contact-section a { font-size: 1.2rem; }
 }

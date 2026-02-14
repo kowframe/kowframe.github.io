@@ -1,102 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nattawat Kanjanaprakarn - Software Engineer</title>
+    <title>Frame the Ultimate Software Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="script.js" defer></script>
+    <link rel="icon" type="image/jpg" href="./img/web-icon-gud.jpg" />
 </head>
 <body>
 
-    <!-- Section 1: The Hero -->
-    <section class="hero-section">
-        <div class="content animate-on-load">
-            <h3>(Work in progress! Check back often to see what’s new!)</h3>
-            <h1>Software Engineer & System Designer</h1>
-            <p>
-                An experienced IT Professional with over 7 years of expertise in delivering high-quality system designs and managing enterprise-level software integrations. Skilled at translating business needs into efficient and scalable technical solutions.
-            </p>
-        </div>
-    </section>
+    <!-- SCENE 1: The Grand Opening -->
+    <header class="hero-section">
+        <h2>(Work in progress! Check back often to see what’s new!)</h2>
+        <h1>Frame</h1> <br>
+        <h1>Software Engineer</h1>
+        <p>An experienced IT Professional with over 7 years of expertise in delivering high-quality system designs and managing enterprise-level software integrations. Skilled at translating business needs into efficient and scalable technical solutions.</p>
+    </header>
 
-    <!-- Section 2: The "Sticky" Showcase (Main Project) -->
-    <section class="scrolly-section">
+    <!-- SCENE 2: The Core Scrollytelling Experience -->
+    <main id="scrolly-story" class="scrolly-container">
+        
+        <!-- The Visual that sticks to the screen -->
         <div class="sticky-visual">
-            <div class="visual-content">
-                <h2>EXAT Area Management System</h2>
-                <p>Enterprise System Integration.</p>
+            <div class="visual-wrapper">
+                <!-- This image will be changed by JavaScript -->
+                <img id="project-visual" src="https://picsum.photos/seed/problem/1200/800" alt="Project Visual">
             </div>
         </div>
+
+        <!-- The Text that drives the story -->
         <div class="scroll-text">
-            <div class="step">
-                <h3>The Challenge</h3>
-                <p>Contributed to the system design for managing space leasing under expressways. The core challenge was overseeing system integration between the core platform, SAP, and E-Tax systems to ensure automated and accurate invoicing.</p>
+            <div class="step" data-step="1" data-img="https://picsum.photos/seed/problem/1200/800">
+                <h2>The Challenge</h2>
+                <p>The legacy system was slow, unable to scale, and costing the company valuable users every day.</p>
             </div>
-            <div class="step">
-                <h3>My Contribution</h3>
-                <p>My role involved system analysis, design oversight, and conducting system testing and quality assurance to verify that all functional requirements were met before project acceptance.</p>
+            <div class="step" data-step="2" data-img="https://picsum.photos/seed/architecture/1200/800">
+                <h2>The Architecture</h2>
+                <p>I designed a new, decoupled microservice architecture using modern cloud technologies to ensure scalability and resilience.</p>
             </div>
-            <div class="step">
-                <h3>The Outcome</h3>
-                <p>The result was a streamlined, automated invoicing process that enhanced operational efficiency and accuracy for a large-scale organization.</p>
+            <div class="step" data-step="3" data-img="https://picsum.photos/seed/result/1200/800">
+                <h2>The Result</h2>
+                <p>A 95% reduction in page load times and zero downtime since launch, supporting a 10x increase in traffic.</p>
             </div>
+            <!-- This invisible spacer pins the final frame -->
+            <div class="scrolly-spacer"></div>
         </div>
-    </section>
-    
-    <!-- Section 3: The Full-Bleed Feature -->
-    <section class="full-bleed-section">
-        <div class="full-bleed-bg"></div>
-        <div class="full-bleed-content animate-on-scroll">
-            <h2>Bridging Systems, Creating Value.</h2>
-        </div>
-    </section>
+    </main>
 
-    <!-- Section 4: Additional Project Showcase (Loaded from JSON) -->
-    <section class="showcase-section">
-        <div id="project-showcase-container"></div>
-    </section>
-
-    <!-- Section 5: The Grid (Core Competencies) -->
-    <section class="skills-section">
-        <div class="content">
-            <h2 class="animate-on-scroll">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card animate-on-scroll">
-                    <h4>Analysis & Design</h4>
-                    <p>System Analysis, Requirement Gathering, SDLC, UAT, Workflow Design (UML).</p>
-                </div>
-                <div class="skill-card animate-on-scroll">
-                    <h4>Enterprise Platforms</h4>
-                    <p>SAP Integration, E-Tax System, Helix ITSM, Google Cloud, Microsoft Dynamics NAV (ERP), Oracle Service Bus (OSB).</p>
-                </div>
-                <div class="skill-card animate-on-scroll">
-                    <h4>Programming & Scripting</h4>
-                    <p>Python, Node.js, Java, PHP, SQL</p>
-                </div>
-                <div class="skill-card animate-on-scroll">
-                    <h4>Testing & QA</h4>
-                    <p>Automation Testing, Manual Testing, Test Scenarios/Cases.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Section 6: The Call to Action -->
+    <!-- SCENE 3: The Call to Action -->
     <footer class="contact-section">
-        <div class="content animate-on-scroll">
-            <h2>Let's Connect</h2>
-            <p>I'm currently open to new opportunities. Feel free to reach out.</p>
-            <div class="contact-links">
-                <a href="mailto:nattawat.kan.per@gmail.com">Email</a>
-                <a href="#">LinkedIn</a>
-                <a href="https://github.com/kowframe">GitHub</a>
-            </div>
+        <h2>Let's Build Together.</h2>
+        <div class="links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Email</a>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

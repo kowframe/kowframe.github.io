@@ -1,84 +1,47 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const steps = document.querySelectorAll('.step');
+    const projectVisual = document.getElementById('project-visual');
+    const body = document.body;
 
-    // --- General Animate on Scroll ---
-    const generalObserver = new IntersectionObserver((entries) => {
+    if (!steps.length || !projectVisual) {
+        console.error("Scrollytelling elements not found. Check your HTML IDs and classes.");
+        return;
+    }
+
+    const stepObserver = new IntersectionObserver((entries) => {
+        let isAnyStepActive = false;
+
         entries.forEach(entry => {
+            const stepElement = entry.target;
+            
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
+                stepElement.classList.add('is-active');
+                
+                const newImgSrc = stepElement.dataset.img;
+                if (newImgSrc && projectVisual.src !== newImgSrc) {
+                    projectVisual.style.opacity = 0;
+                    setTimeout(() => {
+                        projectVisual.src = newImgSrc;
+                        projectVisual.style.opacity = 1;
+                    }, 400);
+                }
+                isAnyStepActive = true;
+            } else {
+                stepElement.classList.remove('is-active');
             }
         });
-    }, {
-        threshold: 0.1
+
+        if (isAnyStepActive) {
+            body.classList.add('is-scrolling');
+        } else {
+            body.classList.remove('is-scrolling');
+        }
+
+    }, { 
+        threshold: 0.6 
     });
 
-    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-    elementsToAnimate.forEach(el => generalObserver.observe(el));
-
-
-    // --- Scrollytelling Logic (Find Closest to Center) ---
-    const steps = document.querySelectorAll('.step');
-    function updateActiveStep() {
-        const viewportCenter = window.innerHeight / 2;
-        let closestStep = null;
-        let minDistance = Infinity;
-
-        steps.forEach(step => {
-            const rect = step.getBoundingClientRect();
-            const elementCenter = rect.top + rect.height / 2;
-            const distance = Math.abs(viewportCenter - elementCenter);
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestStep = step;
-            }
-        });
-
-        steps.forEach(step => {
-            step.classList.toggle('is-active', step === closestStep);
-        });
-    }
-    window.addEventListener('scroll', updateActiveStep);
-    updateActiveStep(); // Initial check on load
-
-
-    // --- Load Projects from JSON ---
-    async function loadProjects() {
-        try {
-            const response = await fetch('projects.json');
-            if (!response.ok) throw new Error('Network response was not ok.');
-            const projects = await response.json();
-            const container = document.getElementById('project-showcase-container');
-            if (!container) return;
-
-            let projectsHTML = '';
-            projects.forEach(project => {
-                projectsHTML += `
-                    <div class="project-showcase animate-on-scroll">
-                        <div class="project-image">
-                            <div class="placeholder-img"></div> 
-                        </div>
-                        <div class="project-details">
-                            <h3>${project.title}</h3>
-                            <p class="project-organization">${project.organization}</p>
-                            <p>${project.description}</p>
-                            <div class="tech-tags">
-                                ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = projectsHTML;
-            
-            // Re-observe the newly added elements for animations
-            const newElementsToAnimate = container.querySelectorAll('.animate-on-scroll');
-            newElementsToAnimate.forEach(el => generalObserver.observe(el));
-
-        } catch (error) {
-            console.error('Failed to load projects:', error);
-        }
-    }
-
-    loadProjects();
-
+    steps.forEach(step => {
+        stepObserver.observe(step);
+    });
 });
