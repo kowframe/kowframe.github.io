@@ -5,55 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frame the Ultimate Software Engineer</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" type="image/jpg" href="./img/web-icon-gud.jpg" />
 </head>
 <body>
 
-    <!-- SCENE 1: The Grand Opening -->
+    <!-- SCENE 1: The Hero (เหมือนเดิม) -->
     <header class="hero-section">
-        <h2>(Work in progress! Check back often to see what’s new!)</h2>
-        <h1>Frame</h1> <br>
+        <h3 class="wip-notice">(Work in progress! Check back often to see what’s new!)</h3>
+        <h4 id="last-updated-timestamp"></h4> 
+        <h1>Frame</h1>
+        <br>
         <h1>Software Engineer</h1>
-        <p>An experienced IT Professional with over 7 years of expertise in delivering high-quality system designs and managing enterprise-level software integrations. Skilled at translating business needs into efficient and scalable technical solutions.</p>
+        <p>An experienced IT Professional with over 7 years of expertise in delivering high-quality system designs and managing enterprise-level software integrations.</p>
     </header>
 
-    <!-- SCENE 2: The Core Scrollytelling Experience -->
-    <main id="scrolly-story" class="scrolly-container">
+    <!-- SCENE 2: The Project Story (โครงสร้างใหม่) -->
+    <main class="story-container">
         
-        <!-- The Visual that sticks to the screen -->
-        <div class="sticky-visual">
+        <!-- Step 1 -->
+        <section class="step">
             <div class="visual-wrapper">
-                <!-- This image will be changed by JavaScript -->
-                <img id="project-visual" src="https://picsum.photos/seed/problem/1200/800" alt="Project Visual">
+                <img src="https://picsum.photos/seed/problem/1200/800" alt="The Challenge">
             </div>
-        </div>
-
-        <!-- The Text that drives the story -->
-        <div class="scroll-text">
-            <div class="step" data-step="1" data-img="https://picsum.photos/seed/problem/1200/800">
+            <div class="text-content">
                 <h2>The Challenge</h2>
                 <p>The legacy system was slow, unable to scale, and costing the company valuable users every day.</p>
             </div>
-            <div class="step" data-step="2" data-img="https://picsum.photos/seed/architecture/1200/800">
+        </section>
+
+        <!-- Step 2 -->
+        <section class="step">
+            <div class="visual-wrapper">
+                <img src="https://picsum.photos/seed/architecture/1200/800" alt="The Architecture">
+            </div>
+            <div class="text-content">
                 <h2>The Architecture</h2>
                 <p>I designed a new, decoupled microservice architecture using modern cloud technologies to ensure scalability and resilience.</p>
             </div>
-            <div class="step" data-step="3" data-img="https://picsum.photos/seed/result/1200/800">
+        </section>
+
+        <!-- Step 3 -->
+        <section class="step">
+            <div class="visual-wrapper">
+                <img src="https://picsum.photos/seed/result/1200/800" alt="The Result">
+            </div>
+            <div class="text-content">
                 <h2>The Result</h2>
                 <p>A 95% reduction in page load times and zero downtime since launch, supporting a 10x increase in traffic.</p>
             </div>
-            <!-- This invisible spacer pins the final frame -->
-            <div class="scrolly-spacer"></div>
-        </div>
+        </section>
+        
     </main>
 
-    <!-- SCENE 3: The Call to Action -->
+    <!-- SCENE 3: The Contact Footer (เหมือนเดิม) -->
     <footer class="contact-section">
-        <h2>Let's Build Together.</h2>
+        <h2>Let's Challenge Together.</h2>
         <div class="links">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-            <a href="#">Email</a>
+            <a href="https://github.com/kowframe" target="_blank">GitHub</a>
+            <a href="mailto:nattawat.kan.per@gmail.com">Email</a>
         </div>
     </footer>
 

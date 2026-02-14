@@ -1,4 +1,3 @@
-/* --- Global Apple-like Style --- */
 :root {
     --dark-bg: #000000;
     --light-text: #f5f5f7;
@@ -13,7 +12,7 @@ body {
     margin: 0;
 }
 
-/* --- SCENE 1: The Hero --- */
+/* --- SCENE 1: The Hero (RESTORED TO ORIGINAL STYLE) --- */
 .hero-section {
     height: 100vh;
     display: flex;
@@ -22,6 +21,18 @@ body {
     align-items: center;
     text-align: center;
     padding: 0 20px;
+}
+
+.wip-notice {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dim-text);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    padding: 5px 15px;
+    border: 1px solid var(--dim-text);
+    border-radius: 20px;
 }
 
 .hero-section h1 {
@@ -35,86 +46,68 @@ body {
     max-width: 800px;
 }
 
-/* --- SCENE 2: The Scrollytelling Core --- */
-.scrolly-container {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    /* 3 steps + 1 spacer = 400vh */
-    height: 400vh;
+/* --- SCENE 2: The Project Story (NEW CONCEPT) --- */
+.story-container {
+    width: 100%;
+    overflow: hidden;
 }
 
-.sticky-visual {
-    flex-basis: 45%;
-    height: 100vh;
-    position: sticky;
-    top: 0;
+.step {
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    padding: 5rem 20px;
+    box-sizing: border-box;
 }
 
 .visual-wrapper {
     width: 90%;
-    max-width: 800px;
-    aspect-ratio: 4 / 3;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    transform: scale(0.9) translateX(-20px);
-    opacity: 0.8;
-    transition: transform 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .visual-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 0.4s ease-in-out;
 }
 
-.scroll-text {
-    flex-basis: 55%;
-    position: relative;
-    z-index: 10;
+.text-content {
+    text-align: center;
+    margin-top: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
 }
 
-.step {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 10%;
-    text-align: left;
-    opacity: 0.2;
-    transition: opacity 0.4s ease;
+.text-content h2 {
+    font-size: 2.5rem;
 }
 
-.scrolly-spacer {
-    height: 100vh;
-}
-
-.step.is-active {
-    opacity: 1;
-}
-
-.step h2 {
-    font-size: 3rem;
-}
-.step p {
-    font-size: 1.25rem;
+.text-content p {
+    font-size: 1.2rem;
     color: var(--dim-text);
     line-height: 1.6;
-    max-width: 500px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-body.is-scrolling .visual-wrapper {
-    transform: scale(1) translateX(0);
+.step.is-active .visual-wrapper,
+.step.is-active .text-content {
     opacity: 1;
+    transform: none;
 }
 
-/* --- SCENE 3: The Contact Footer --- */
+/* --- SCENE 3: The Contact Footer (RESTORED TO ORIGINAL STYLE) --- */
 .contact-section {
     height: 80vh;
     display: flex;
@@ -123,7 +116,9 @@ body.is-scrolling .visual-wrapper {
     align-items: center;
     text-align: center;
 }
-.contact-section h2 { font-size: 3.5rem; }
+.contact-section h2 { 
+    font-size: 3.5rem; 
+}
 .contact-section a {
     color: var(--accent-blue);
     text-decoration: none;
@@ -131,47 +126,23 @@ body.is-scrolling .visual-wrapper {
     margin: 0 15px;
 }
 
-/* === MOBILE RESPONSIVE STYLES (Breakpoint at 768px) === */
+#last-updated-timestamp {
+    font-size: 0.8rem;
+    font-weight: 400; 
+    color: var(--dim-text); 
+    margin-top: -1rem; 
+    margin-bottom: 2rem; 
+}
 
+/* === MOBILE RESPONSIVE STYLES === */
 @media (max-width: 768px) {
-    .scrolly-container {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .sticky-visual {
-        position: static;
-        flex-basis: auto;
-        width: 100%;
-        height: auto;
-        padding: 40px 0;
-    }
-    
-    .visual-wrapper {
-        width: 90%;
-        transform: scale(1) translateX(0);
-        opacity: 1;
-    }
-
-    .scroll-text {
-        flex-basis: auto;
-        width: 100%;
-    }
-
     .step {
-        height: auto;
-        min-height: 60vh;
-        text-align: center;
-        padding: 0 5%;
+        padding: 4rem 15px;
     }
+    .text-content h2 { font-size: 2rem; }
+    .text-content p { font-size: 1rem; }
 
-    .scrolly-spacer {
-        height: 50vh; /* Make spacer shorter on mobile */
-    }
-
-    .step h2 { font-size: 2.5rem; }
-    .step p { font-size: 1.1rem; max-width: 100%; }
-    
+    /* Restore responsive styles for top and bottom sections */
     .contact-section h2 { font-size: 2.5rem; }
     .contact-section a { font-size: 1.2rem; }
 }
