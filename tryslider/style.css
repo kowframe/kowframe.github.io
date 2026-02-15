@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1a1a1a;
+}
+
+.slider {
+    position: relative;
+    width: 800px;
+    height: 450px;
+    margin: 50px auto;
+}
+
+.slides {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    border-radius: 10px;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 40px;
+    background: #3a3a3a;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 20px;
+    position: relative;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #666;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 2;
+}
+
+.dot:hover {
+    background: #999;
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: #fff;
+    width: 30px;
+    border-radius: 5px;
+}
+
+.play-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #3a3a3a;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.play-btn:hover {
+    background: #4a4a4a;
+    transform: scale(1.1);
+}

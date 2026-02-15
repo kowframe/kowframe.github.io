@@ -16,7 +16,7 @@ body {
 
 /* --- SCENE 1: The Hero (RESTORED TO ORIGINAL STYLE) --- */
 .hero-section {
-    height: 100vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,7 +89,7 @@ body {
 
 .text-content {
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 1rem;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
@@ -152,4 +152,52 @@ body {
     .text-content p { font-size: 1rem; }
     .contact-section h2 { font-size: 2.5rem; }
     .contact-section a { font-size: 1.2rem; }
+}
+
+.slider {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.slides {
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: white;
 }

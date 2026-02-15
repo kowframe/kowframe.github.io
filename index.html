@@ -28,9 +28,22 @@
     <main class="story-container">
         <!-- Step 1 -->
         <section class="step">
-            <div class="visual-wrapper">
-                <img src="./img/108.PNG" alt="The Challenge">
+            <!-- Try slider -->
+            <div class="slider">
+                <div class="slides">
+                    <img src="./img/108.PNG" class="slide active">
+                    <img src="./img/734.PNG" class="slide">
+                    <img src="./img/924.PNG" class="slide">
+                </div>
+                <div class="dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
             </div>
+            <!-- <div class="visual-wrapper">
+                <img src="./img/108.PNG" alt="The Challenge">
+            </div> -->
             <div class="text-content">
                 <h2>PROFESSIONAL SUMMARY</h2>
                 <p>
@@ -48,7 +61,10 @@
             </div>
             <div class="text-content">
                 <h2>EXAT Area Management System</h2>
-                <p>I designed a new, decoupled microservice architecture using modern cloud technologies to ensure scalability and resilience.</p>
+                <p>
+                    A platform for managing rental spaces along EXAT expressways, featuring a customer portal for payments 
+                    and a full back-office suite for staff to manage contracts, billing, and area mapping.
+                </p>
             </div>
         </section>
 
