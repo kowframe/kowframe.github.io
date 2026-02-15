@@ -1,5 +1,18 @@
+/* === MOBILE RESPONSIVE STYLES (Breakpoint at 768px) === */
+@media (max-width: 768px) {
+    .step {
+        min-height: auto; 
+        padding: 4rem 15px; 
+    }
+
+    .text-content h2 { font-size: 2rem; }
+    .text-content p { font-size: 1rem; }
+    .contact-section h2 { font-size: 2.5rem; }
+    .contact-section a { font-size: 1.2rem; }
+}
+
 :root {
-    --dark-bg: #000000;
+    --dark-bg: #101010fb;
     --light-text: #f5f5f7;
     --dim-text: #a1a1a6;
     --accent-blue: #0071e3;
@@ -16,7 +29,7 @@ body {
 
 /* --- SCENE 1: The Hero (RESTORED TO ORIGINAL STYLE) --- */
 .hero-section {
-    height: 70vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,65 +152,4 @@ body {
     color: var(--dim-text); 
     margin-top: -1rem; 
     margin-bottom: 2rem; 
-}
-
-/* === MOBILE RESPONSIVE STYLES (Breakpoint at 768px) === */
-@media (max-width: 768px) {
-    .step {
-        min-height: auto; 
-        padding: 4rem 15px; 
-    }
-
-    .text-content h2 { font-size: 2rem; }
-    .text-content p { font-size: 1rem; }
-    .contact-section h2 { font-size: 2.5rem; }
-    .contact-section a { font-size: 1.2rem; }
-}
-
-.slider {
-    position: relative;
-    width: 800px;
-    height: 400px;
-    margin: 50px auto;
-    overflow: hidden;
-}
-
-.slides {
-    width: 100%;
-    height: 100%;
-}
-
-.slide {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-.dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.5);
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.dot.active {
-    background: white;
 }

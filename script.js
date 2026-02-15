@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     fetchLastUpdate();
-    autoplaySlider()
 
 });
 
@@ -66,47 +65,4 @@ async function fetchLastUpdate() {
         console.error('Error fetching last update time:', error);
         timestampElement.style.display = 'none';
     }
-}
-
-async function autoplaySlider() {
-    let slideIndex = 1;
-    let slideInterval;
-    
-    function showSlide(n) {
-        const slides = document.getElementsByClassName('slide');
-        const dots = document.getElementsByClassName('dot');
-        
-        if (n > slides.length) slideIndex = 1;
-        if (n < 1) slideIndex = slides.length;
-        
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].classList.remove('active');
-        }
-        
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].classList.remove('active');
-        }
-        
-        slides[slideIndex - 1].classList.add('active');
-        dots[slideIndex - 1].classList.add('active');
-    }
-    
-    function autoPlay() {
-        slideInterval = setInterval(() => {
-            showSlide(slideIndex += 1);
-        }, 5000);
-    }
-    
-    // Attach click events to dots
-    const dots = document.getElementsByClassName('dot');
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].addEventListener('click', function() {
-            clearInterval(slideInterval);
-            showSlide(slideIndex = i + 1);
-            autoPlay();
-        });
-    }
-    
-    // Start autoplay
-    autoPlay();
 }
