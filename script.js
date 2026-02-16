@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     fetchLastUpdate();
+    initNavigationHighlighter();
 
 });
 
@@ -65,4 +66,49 @@ async function fetchLastUpdate() {
         console.error('Error fetching last update time:', error);
         timestampElement.style.display = 'none';
     }
+}
+
+/**
+ * ฟังก์ชันสำหรับทำ Scroll Highlight และ Animation
+ */
+function initNavigationHighlighter() {
+    const sections = document.querySelectorAll('header, section, footer');
+    const navLinks = document.querySelectorAll('.side-nav a');
+
+    const observerOptions = {
+        threshold: 0.4 // ทำงานเมื่อเห็นพื้นที่ 40% ของ Section
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // เพิ่ม Animation Class ให้กับ Step (ตาม Logic เดิมของคุณ)
+                if (entry.target.classList.contains('step')) {
+                    entry.target.classList.add('is-active');
+                }
+
+                // อัปเดตสถานะเมนู
+                const targetId = entry.target.getAttribute('id');
+                updateNavMenu(targetId, navLinks);
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+}
+
+/**
+ * ฟังก์ชันสำหรับเปลี่ยนสี/สถานะของ Link ใน Menu
+ */
+function updateNavMenu(activeId, links) {
+    links.forEach(link => {
+        const href = link.getAttribute('href').replace('#', '');
+        if (href === activeId) {
+            link.style.color = 'var(--accent-blue)'; // สีตอน Active
+            link.style.fontWeight = '700';
+        } else {
+            link.style.color = 'var(--dim-text)'; // สีปกติ
+            link.style.fontWeight = '400';
+        }
+    });
 }

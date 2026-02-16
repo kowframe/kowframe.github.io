@@ -1,5 +1,9 @@
 /* === MOBILE RESPONSIVE STYLES (Breakpoint at 768px) === */
 @media (max-width: 768px) {
+    /* ซ่อนเมนูบน Mobile เพื่อไม่ให้เกะกะ */
+    .side-nav {
+        display: none;
+    }
     .step {
         min-height: auto; 
         padding: 4rem 15px; 
@@ -152,4 +156,50 @@ body {
     color: var(--dim-text); 
     margin-top: -1rem; 
     margin-bottom: 2rem; 
+}
+
+/* 1. เพิ่ม Smooth Scroll ให้ทั้งหน้าเว็บ */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. จัดตำแหน่งเมนูไว้ด้านขวาแบบ Fixed */
+.side-nav {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+/* 3. สไตล์ของรายการเมนู */
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-right: 1px solid var(--dim-text); /* เส้นไกด์แนวตั้ง */
+    padding-right: 20px;
+}
+
+.side-nav li {
+    margin: 15px 0;
+}
+
+/* 4. สไตล์ของ Link (ก่อน Active) */
+.side-nav a {
+    color: var(--dim-text);
+    text-decoration: none;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    display: block;
+    text-align: right;
+    font-weight: 400;
+}
+
+/* 5. เอฟเฟกต์เมื่อ Hover */
+.side-nav a:hover {
+    color: var(--light-text);
+    transform: translateX(-5px); /* เลื่อนซ้ายนิดๆ ให้ดูมีมิติ */
 }
