@@ -214,26 +214,6 @@ html {
     max-width: 600px;
 }
 
-/* สไตล์ของแต่ละกล่อง (tech-icon) */
-/* .tech-icon {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-} */
-
-/* .tech-icon:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-5px);
-    border-color: var(--accent-blue);
-} */
 
 /* ขนาดรูป Icon */
 .tech-icon img {
@@ -243,9 +223,71 @@ html {
     margin-bottom: 8px;
 }
 
-.tech-icon span {
-    font-size: 0.75rem;
-    color: var(--dim-text);
-    font-weight: 600;
-    text-transform: uppercase;
+/* จัดการกล่องใหญ่ให้เป็นแนวตั้งเพื่อวางหัวข้อไว้บนสุด */
+.tech-type-group {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* จัดให้ทุกอย่างในนี้อยู่กลาง */
+    width: 100%;
+    margin-bottom: 3rem; /* ระยะห่างจากกลุ่มถัดไป */
 }
+
+/* สไตล์หัวข้อ */
+.category-title p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--light-text);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--accent-blue); /* เพิ่มเส้นใต้ให้ดูเด่น */
+    padding-bottom: 5px;
+}
+
+/* กลุ่ม Icon จัดเรียงแนวนอน */
+.icon-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* ใช้สไตล์ .tech-icon เดิมของคุณได้เลย */
+.tech-icon {
+    /* background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08); */
+    border-radius: 16px;
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* สไตล์หัวข้อ */
+.category-title p {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--light-text);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid var(--accent-blue); /* เพิ่มเส้นใต้ให้ดูเด่น */
+    padding-bottom: 5px;
+}
+
+
