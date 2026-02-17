@@ -203,3 +203,50 @@ html {
     color: var(--light-text);
     transform: translateX(-5px); /* เลื่อนซ้ายนิดๆ ให้ดูมีมิติ */
 }
+
+/* Container สำหรับกลุ่ม Icon */
+.tech-stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 2rem;
+    max-width: 600px;
+}
+
+/* สไตล์ของแต่ละกล่อง (tech-icon) */
+/* .tech-icon {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+} */
+
+/* .tech-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+} */
+
+/* ขนาดรูป Icon */
+.tech-icon img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+ชื่อเทคโนโลยีใต้ Icon
+.tech-icon span {
+    font-size: 0.75rem;
+    color: var(--dim-text);
+    font-weight: 600;
+    text-transform: uppercase;
+}
